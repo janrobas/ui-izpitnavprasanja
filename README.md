@@ -137,15 +137,6 @@ MSE meri **povprečje kvadratov razlik** med dejanskimi in napovedanimi vrednost
 
 ---
 
-### [2 točki] Kaj je logistična regresija in kako se razlikuje od linearne?
-**Vprašanje:**
-Kaj je logistična regresija? V čem se bistveno razlikuje od linearne regresije in za kakšne probleme jo uporabljamo?
-
-**Rešitev:**
-Logistična regresija je kljub imenu **klasifikacijska metoda** (ne regresijska). Uporablja se za napovedovanje verjetnosti pripadnosti določeni kategoriji (npr. da/ne). Bistvena razlika od linearne regresije je v tem, da uporablja **sigmoidno (logistično) funkcijo**, ki linearni rezultat "stisne" v območje med 0 in 1, kar interpretiramo kot verjetnost. Uporabljamo jo za **binarno klasifikacijo** (npr. ali bo stranka kupila izdelek: da/ne).
-
----
-
 ### [2 točki] Kaj so odločitvena drevesa? Opišite zgradbo in primer.
 **Vprašanje:**
 Kaj so odločitvena drevesa? Opišite njihovo zgradbo (kaj so vozlišča, veje, listi) in navedite en primer uporabe.
@@ -210,15 +201,6 @@ Podatke ločimo, da **objektivno ocenimo uspešnost modela** na novih, nevidnih 
 
 Če bi model testirali na istih podatkih, kot smo ga učili, bi dobili preveč optimistično oceno (model bi si podatke zapomnil, ne pa se naučil vzorcev - overfitting). To je enako, kot če bi se "napiflali" vseh odgovorov na vprašanja, ne bi pa znali odgovoriti na drugače postavljeno vprašanje ali na nalogo, ki bi zahtevala logično sklepanje. To bi pomenilo, da v praksi (na novih podatkih) model ne bi deloval dobro. 
 
-
----
-
-### [2 točki] Kaj je validacijska množica in zakaj jo uporabljamo?
-**Vprašanje:**
-Poleg učne in testne množice včasih uporabljamo tudi validacijsko množico. Kakšen je njen namen in kdaj jo potrebujemo?
-
-**Rešitev:**
-Validacijsko množico uporabljamo za **nastavljanje hiperparametrov** modela (npr. stopnja učenja, število dreves, moč regularizacije) in za **primerjavo različnih modelov** med razvojem. Učimo na učni množici, preverjamo na validacijski, ko smo zadovoljni, pa končno oceno dobimo na testni množici. S tem preprečimo, da bi se model posredno "naučil" tudi testnih podatkov preko prilagajanja hiperparametrov.
 
 ---
 
@@ -390,83 +372,7 @@ Rešitev v tem primeru: Uporabimo polinomsko regresijo ali drug nelinearni model
 
 ---
 
-## 5. NAPREDNE TEHNIKE IN KONCEPTI
-
-### [2 točki] Kaj so konvolucijske nevronske mreže (CNN) in za kaj se uporabljajo?
-**Vprašanje:**
-Kaj so konvolucijske nevronske mreže (CNN)? Za kakšno vrsto podatkov so še posebej primerne in zakaj? Opišite osnovni princip delovanja (konvolucija, združevanje).
-
-**Rešitev:**
-Konvolucijske nevronske mreže (CNN) so posebna arhitektura nevronskih mrež, **posebej prilagojena za obdelavo podatkov z lokalno prostorsko strukturo**, kot so slike, video posnetki ali spektrogrami. Njihova prednost je, da samodejno zaznavajo prostorske vzorce - od preprostih (robovi, kotički) do zapletenih (oblike, teksture, deli objektov).
-
-**Osnovna principa delovanja:**
-
-1. **Konvolucija:**
-   - Filter (imenovan tudi jedro) je majhna matrika števil (npr. 3×3 ali 5×5), ki drsi čez celotno sliko.
-   - Na vsaki lokaciji filter izračuna zmnožek svojih vrednosti z vrednostmi pikslov pod seboj in rezultate sešteje.
-   - Rezultat tega procesa je **nova slika (imenovana karta značilk)** - vsaka točka v novi sliki pove, kako močno se ujema vzorec iz filtra z delom originalne slike.
-   - *Primer:* Filter, občutljiv na navpične robove, bo dal visoke vrednosti povsod, kjer so v sliki navpični prehodi (robovi), nizke pa povsod drugje.
-
-2. **Združevanje (Pooling):**
-   - Zmanjšuje velikost slike (dimenzionalnost) in povzema informacije.
-   - Najpogostejši je **max pooling**, ki vzame največjo vrednost iz vsakega majhnega okna (npr. 2×2).
-   - S tem ohranimo najpomembnejše informacije, hkrati pa zmanjšamo število parametrov in računsko zahtevnost.
-
-**Uporaba:**
-- Prepoznavanje objektov na slikah (npr. ali je na sliki mačka)
-- Klasifikacija medicinskih slik (npr. odkritje tumorjev)
-- Segmentacija slik (označevanje vsakega piksla, npr. za avtonomna vozila)
-- Obdelava videa in prepoznavanje obrazov
-
----
-
-### [2 točki] Kaj so rekurentne nevronske mreže (RNN) in kaj je njihova posebnost?
-**Vprašanje:**
-Kaj so rekurentne nevronske mreže (RNN)? Kakšna je njihova ključna lastnost, ki jih loči od običajnih nevronskih mrež, in za kakšne podatke so najprimernejše?
-
-**Rešitev:**
-Rekurentne nevronske mreže (RNN) imajo **povratne zanke**, kar jim omogoča, da ohranjajo "spomin" prejšnjih vhodov. Med obdelavo zaporedja prenašajo skrito stanje iz enega koraka v naslednjega. iz prejšnjega koraka v naslednjega.
-- **Ključna lastnost:** Sposobnost obdelave **zaporednih podatkov** spremenljive dolžine.
-- **Uporaba:** Napovedovanje časovnih vrst, obdelava naravnega jezika (besedila), prepoznavanje govora, strojno prevajanje.
-
----
-
-### [2 točki] Kaj je mehanizem pozornosti (attention) in zakaj je revolucionaren?
-**Vprašanje:**
-Kaj je mehanizem pozornosti (attention mechanism) v nevronskih mrežah? Zakaj je pomemben in kje se najbolj pogosto uporablja?
-
-**Rešitev:**
-Mehanizem pozornosti omogoča modelu, da se pri napovedovanju **osredotoči na najpomembnejše dele vhodnih podatkov**, namesto da bi enakovredno obravnaval vse. Pri obdelavi jezika to pomeni, da model pri generiranju naslednje besede "pogleda" nazaj in oceni, katere prejšnje besede so najbolj relevantne.
-- **Pomen:** Rešil je težavo pozabljanja pri dolgih zaporedjih (ki so jo imeli RNN-ji) in omogočil vzporedno obdelavo.
-- **Uporaba:** Je osnova za **transformerske arhitekture** (npr. BERT, GPT), ki danes poganjajo večino najsodobnejših modelov za jezik.
-
----
-
-### [2 točki] Kaj so transformatorski modeli (transformers)?
-**Vprašanje:**
-Kaj so transformatorski modeli (transformers)? Opišite njihovo glavno inovacijo in zakaj so nadomestili RNN-je za obdelavo jezika.
-
-**Rešitev:**
-Transformatorski modeli so arhitektura, ki v celoti temelji na **mehanizmu pozornosti** in ne uporablja ponavljajočih se zank (kot RNN). Njihova glavna inovacija je, da obdelujejo **celotno zaporedje vzporedno**, kar omogoča veliko hitrejše učenje na zmogljivi strojni opremi.
-- **Prednost:** Boljše obvladovanje dolgih odvisnosti v besedilu in možnost skaliranja na ogromne modele.
-- **Uporaba:** Večina sodobnih LLM (GPT, BERT, Llama) temelji na transformatorjih.
-
----
-
-### [2 točki] Kaj so GAN-i (generativne sovražne mreže)?
-**Vprašanje:**
-Kaj so generativne sovražne mreže (GAN)? Opišite osnovno idejo dveh mrež (generator in diskriminator) in za kaj se uporabljajo.
-
-**Rešitev:**
-Generativne sovražne mreže (GAN) so sestavljene iz dveh nevronskih mrež, ki tekmujeta med seboj:
-- **Generator:** Poskuša ustvariti čim bolj realistične umetne podatke (npr. slike).
-- **Diskriminator:** Poskuša ločiti med pravimi podatki in tistimi, ki jih je ustvaril generator.
-- **Učenje:** Generator se uči "preslepiti" diskriminatorja, diskriminator pa se uči bolje prepoznavati ponaredke. Sčasoma generator postane zelo dober v ustvarjanju realističnih podatkov. Učenje poteka v obliki minimax igre.
-- **Uporaba:** Ustvarjanje realističnih slik (npr. obrazi ljudi, ki ne obstajajo), prenos sloga, povečevanje ločljivosti slik.
-
----
-
-## 6. PRAKTIČNI PRIMERI IN UPORABA
+## 5. PRAKTIČNI PRIMERI IN UPORABA
 
 ### [2 točki] Kaj je značilka (feature) in inženiring značilk (feature engineering)?
 **Vprašanje:**
@@ -486,20 +392,6 @@ Kaj je normalizacija (oz. standardizacija) podatkov? Zakaj je pomembna za nekate
 **Rešitev:**
 Normalizacija je postopek **spreminjanja merila vrednosti značilk**, tako da so v primerljivem območju (npr. med 0 in 1 ali s povprečjem 0 in standardnim odklonom 1).
 - **Zakaj je pomembna:** Algoritmi, ki temeljijo na razdaljah (k-NN, SVM) ali gradientnem spustu (nevronske mreže), so občutljivi na merilo. Če ima ena značilka veliko večje vrednosti (npr. dohodek v evrih) od druge (npr. starost v letih), bo dominirala pri izračunu razdalje ali posodabljanju uteži. Normalizacija zagotovi, da vse značilke enakovredno prispevajo k učenju.
-
----
-
-### [2 točki] Kaj je reinforcement learning?
-**Vprašanje:**
-Kaj je učenje z ojačitvijo (reinforcement learning)? Opišite osnovne koncepte: agent, okolje, akcija, nagrada. Navedite primer uporabe.
-
-**Rešitev:**
-Učenje s posredovanjem je vrsta strojnega učenja, kjer se **agent uči s poskušanjem** v interakciji z okoljem. Prejema **nagrade** (ali kazni) za svoja dejanja in poskuša povečati skupno nagrado skozi čas.
-- **Agent:** tisti, ki se uči in sprejema odločitve.
-- **Okolje:** svet, v katerem agent deluje.
-- **Akcija:** poteza, ki jo agent naredi.
-- **Nagrada:** povratna informacija iz okolja (kako dobra je bila akcija).
-- **Primer:** Učenje igranja šaha - agent (računalnik) igra poteze (akcije) na šahovnici (okolje) in prejme nagrado ob zmagi (ali kazen ob porazu).
 
 ---
 
@@ -717,7 +609,7 @@ Lepo, da želite zbirko dopolniti še s konkretnimi vprašanji o velikih jezikov
 
 ---
 
-## 7. VELIKI JEZIKOVNI MODELI (LLM)
+## 6. VELIKI JEZIKOVNI MODELI (LLM)
 
 ### [1 točka] Kaj so tokeni in zakaj so pomembni pri delu z LLM?
 **Vprašanje:**
