@@ -239,7 +239,7 @@ Matrika zmede je osnova za izračun drugih metrik, kot so natančnost, priklic i
 
 ### [2 točki] Kakšna je razlika med natančnostjo (precision) in priklicem (recall)?
 **Vprašanje:**
-Razložite razliko med **natančnostjo (precision)** in **priklicem (recall)**. Kdaj je pomembnejša natančnost in kdaj priklic? Navedite primera.
+Razložite razliko med **natančnostjo (precision)** in **priklicem (recall)**. Kdaj je pomembnejša natančnost in kdaj priklic? Navedite primere.
 
 **Rešitev:**
 - **Natančnost (precision):** Od vseh primerov, ki jih je model označil kot pozitivne, koliko jih je res pozitivnih? Formula: TP / (TP + FP). **Visoka natančnost** pomeni malo lažnih alarmov.
@@ -667,13 +667,13 @@ Ključna razlika je v **prisotnosti oznak (labels)** v učnih podatkih.
 - **Nadzorovano učenje:**
     - Učni podatki vsebujejo vhode in pripadajoče pravilne izhode (oznake).
     - Cilj je naučiti se preslikave iz vhodov v izhode, da lahko napovemo oznake za nove, nevidne podatke.
-    - *Primera algoritmov:* Linearna regresija, odločitvena drevesa, podporni vektorji (SVM).
+    - *Primer algoritmov:* Linearna regresija, odločitvena drevesa, podporni vektorji (SVM).
     - *Konkreten problem:* Napovedovanje cene stanovanja (regresija) ali klasifikacija e-pošte kot spam/ne-spam.
 
 - **Nenadzorovano učenje:**
     - Učni podatki **nimajo oznak**. Model sam odkriva skrite strukture, vzorce ali skupine v podatkih.
     - Cilj je razumeti porazdelitev podatkov ali jih združiti v smiselne skupine.
-    - *Primera algoritmov:* Metoda voditeljev (k-means), hierarhično grozdenje, analiza glavnih komponent (PCA).
+    - *Primer algoritmov:* Metoda voditeljev (k-means), hierarhično grozdenje, analiza glavnih komponent (PCA).
     - *Konkreten problem:* Razdelitev strank v skupine glede na nakupovalne navade za trženje (grozdenje) ali zmanjšanje dimenzionalnosti podatkov za vizualizacijo.
 
 ---
