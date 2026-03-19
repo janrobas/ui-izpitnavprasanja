@@ -227,7 +227,9 @@ Validacijsko množico uporabljamo za **nastavljanje hiperparametrov** modela (np
 Kaj je matrika zmede (confusion matrix) pri klasifikaciji? Opišite štiri osnovne elemente (TP, TN, FP, FN) in pojasnite, kaj pomenijo.
 
 **Rešitev:**
-Matrika zmede je orodje za **vizualizacijo uspešnosti klasifikacijskega modela**. Primerja dejanske razrede s tistimi, ki jih je napovedal model. Za binarno klasifikacijo (npr. "pozitivno" in "negativno") poznamo:
+Matrika zmede je orodje za vizualizacijo uspešnosti klasifikacijskega modela. Primerja dejanske razrede (tisto, kar v resnici je) z napovedanimi razredi (tisto, kar je model napovedal). Običajno je predstavljena kot tabela, kjer vrstice predstavljajo dejanske vrednosti, stolpci pa napovedane vrednosti.
+
+Za binarno klasifikacijo (npr. "pozitivno" in "negativno") poznamo:
 - **TP (True Positive):** Pravilno napovedani pozitivni primeri.
 - **TN (True Negative):** Pravilno napovedani negativni primeri.
 - **FP (False Positive):** Lažno pozitivni - model je napovedal pozitivno, dejansko je negativno.
