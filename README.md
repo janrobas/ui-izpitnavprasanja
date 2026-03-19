@@ -137,6 +137,21 @@ MSE meri **povprečje kvadratov razlik** med dejanskimi in napovedanimi vrednost
 
 ---
 
+### [1 točka] Kaj je koeficient determinacije (R^2) in kaj nam pove?
+**Vprašanje:**  
+Kaj je koeficient determinacije, označen kot R^2? Kako ga interpretiramo pri regresijskih modelih? Kakšne vrednosti lahko zavzame in kaj pomeni R^2 = 0, kaj pa R^2 = 1?
+
+**Rešitev:**  
+Koeficient determinacije R^2 je metrika za ocenjevanje kakovosti regresijskih modelov. Pove, kolikšen delež variance ciljne spremenljivke je pojasnjen z modelom (z vhodnimi značilkami).
+
+- R^2 = 1 pomeni, da model popolnoma pojasni varianco podatkov - vse točke ležijo na regresijski premici (ali hiperravnini).
+- R^2 = 0 pomeni, da model ne pojasni nič več variance, kot bi jo pojasnili s preprosto uporabo povprečja ciljne spremenljivke.
+- R^2 je lahko tudi **negativen**, kar pomeni, da je model slabši od napovedi s konstantnim povprečjem - to se zgodi, če model ni pravilno prilagojen podatkom (npr. napačna izbira modela, premajhna količina podatkov ali premočna regularizacija).
+
+R^2 se pogosto uporablja skupaj z **MSE** (povprečno kvadratno napako). MSE meri absolutno velikost napak, R^2 pa meri **relativno izboljšanje** glede na osnovni model (napoved s povprečjem).
+
+---
+
 ### [2 točki] Kaj so odločitvena drevesa? Opišite zgradbo in primer.
 **Vprašanje:**
 Kaj so odločitvena drevesa? Opišite njihovo zgradbo (kaj so vozlišča, veje, listi) in navedite en primer uporabe.
@@ -209,7 +224,9 @@ Podatke ločimo, da **objektivno ocenimo uspešnost modela** na novih, nevidnih 
 Kaj je matrika zmede (confusion matrix) pri klasifikaciji? Opišite štiri osnovne elemente (TP, TN, FP, FN) in pojasnite, kaj pomenijo.
 
 **Rešitev:**
-Matrika zmede je orodje za **vizualizacijo uspešnosti klasifikacijskega modela**. Primerja dejanske razrede s tistimi, ki jih je napovedal model. Za binarno klasifikacijo (npr. "pozitivno" in "negativno") poznamo:
+Matrika zmede je orodje za vizualizacijo uspešnosti klasifikacijskega modela. Primerja dejanske razrede (tisto, kar v resnici je) z napovedanimi razredi (tisto, kar je model napovedal). Običajno je predstavljena kot tabela, kjer vrstice predstavljajo dejanske vrednosti, stolpci pa napovedane vrednosti.
+
+Za binarno klasifikacijo (npr. "pozitivno" in "negativno") poznamo:
 - **TP (True Positive):** Pravilno napovedani pozitivni primeri.
 - **TN (True Negative):** Pravilno napovedani negativni primeri.
 - **FP (False Positive):** Lažno pozitivni - model je napovedal pozitivno, dejansko je negativno.
