@@ -484,8 +484,8 @@ Prekomerno prilagajanje (overfitting) se zgodi, ko se model **preveč natančno 
 - **Preprečevanje:**
     1. **Regularizacija** (npr. L1, L2) - kaznovanje prevelikih uteži.
     2. **Zgodnje zaustavljanje (early stopping)** - ustavimo učenje, ko se napaka na validacijski množici začne povečevati.
-    4. **Zmanjšanje kompleksnosti modela** (npr. manj plasti v nevronski mreži, manj globoko drevo).
-    5. **Metoda prečnega preverjanja (cross-validation)** - podatke večkrat razdelimo na učni in validacijski del ter model ocenimo na vseh delitvah. S tem dobimo bolj robustno oceno in preprečimo, da bi bil model preveč prilagojen eni sami delitvi.
+    3. **Zmanjšanje kompleksnosti modela** (npr. manj plasti v nevronski mreži, manj globoko drevo).
+    4. **Metoda prečnega preverjanja (cross-validation)** - podatke večkrat razdelimo na učni in validacijski del ter model ocenimo na vseh delitvah. S tem dobimo bolj robustno oceno in preprečimo, da bi bil model preveč prilagojen eni sami delitvi.
 
 Primer:
 Predstavljajte si, da model za napovedovanje vremena dobro napove pretekle podatke, ker si je zapomnil vsak deževen dan, a na novo napoved je popolnoma zgrešil. To je overfitting.
@@ -732,7 +732,7 @@ Oba pojava sta povezana z učenjem globokih nevronskih mrež (z veliko plastmi) 
     - *Vzrok:* Pojavi se, ko so odvodi aktivacijskih funkcij ali uteži večji od 1, njihovo zaporedno množenje pa povzroči eksponentno rast.
     - *Pojavi se pri:* Globokih mrežah, še posebej pri RNN-jih, in pri slabi inicializaciji uteži.
 
-**Rešitve:** Uporaba ustreznih aktivacijskih funkcij (npr. ReLU), skrbna inicializacija uteži, normalizacija podatkov, gradient clipping (omejitev velikosti gradienta za eksplodirajoče gradiente) in uporaba arhitektur, kot je LSTM pri RRN - (Long Short-Term Memory).
+**Rešitve:** Uporaba ustreznih aktivacijskih funkcij (npr. ReLU), skrbna inicializacija uteži, normalizacija podatkov, gradient clipping (omejitev velikosti gradienta za eksplodirajoče gradiente) in uporaba arhitektur, kot je LSTM (Long Short-Term Memory).
 
 ---
 
@@ -1071,10 +1071,10 @@ Pri reševanju problema imamo na voljo klasične metode strojnega učenja in vel
 **Rešitev:**
 Odločitev je odvisna od narave problema in zahtev, ne pa od tega, kateri pristop je "modernejši". Pomembna merila:
 
-1. **Narava naloge:** LLMji so izjemni pri razumevanju in **generiranju naravnega jezika** (odgovarjanje, povzemanje, pisanje, prevajanje). Za **strukturirane napovedi** iz tabelarnih podatkov (npr. napoved cene, klasifikacija strank) so praviloma učinkovitejši klasični modeli (regresija, drevesa, ...), saj so cenejši, hitrejši in predvidljivejši.
-2. **Determinizem in zanesljivost:** Klasični modeli so **deterministični** - za isti vhod vedno vrnejo isti izhod in jih je lažje preveriti. LLMji so verjetnostni in lahko halucinirajo, zato so manj primerni tam, kjer je zahtevana popolna doslednost ali stroga pravilnost.
-3. **Podatki in učenje:** Klasični ML potrebuje **označene podatke** in vnaprej izbrane značilke za vsako nalogo. LLMji to znanje v veliki meri že imajo (učeni so na ogromnih korpusih), zato lahko delujejo tudi brez posebnih podatkov, a jih je težje nadzorovano učiti na lastnih podatkih.
-4. **Stroški, hitrost in viri:** Klasični modeli so **lahki** - delujejo hitro in tudi na običajni strojni opremi, pogosto tudi brez internetne povezave. LLMji so računsko zahtevni, počasnejši in dražji (zelo zmogljiva strojna oprema ali uporaba zunanjih storitev).
-5. **Zasebnost in razložljivost:** Pri občutljivih podatkih (zdravstvo, finance) je lahko klasični model, ki teče lokalno in je razložljiv (npr. drevesa, linearni modeli), primernejši kot pošiljanje podatkov zunanjemu LLMju.
+1. **Narava naloge:** LLM-ji so izjemni pri razumevanju in **generiranju naravnega jezika** (odgovarjanje, povzemanje, pisanje, prevajanje). Za **strukturirane napovedi** iz tabelarnih podatkov (npr. napoved cene, klasifikacija strank) so praviloma učinkovitejši klasični modeli (regresija, drevesa, ...), saj so cenejši, hitrejši in predvidljivejši.
+2. **Determinizem in zanesljivost:** Klasični modeli so **deterministični** - za isti vhod vedno vrnejo isti izhod in jih je lažje preveriti. LLM-ji so verjetnostni in lahko halucinirajo, zato so manj primerni tam, kjer je zahtevana popolna doslednost ali stroga pravilnost.
+3. **Podatki in učenje:** Klasični ML potrebuje **označene podatke** in vnaprej izbrane značilke za vsako nalogo. LLM-ji to znanje v veliki meri že imajo (učeni so na ogromnih korpusih), zato lahko delujejo tudi brez posebnih podatkov, a jih je težje nadzorovano učiti na lastnih podatkih.
+4. **Stroški, hitrost in viri:** Klasični modeli so **lahki** - delujejo hitro in tudi na običajni strojni opremi, pogosto tudi brez internetne povezave. LLM-ji so računsko zahtevni, počasnejši in dražji (zelo zmogljiva strojna oprema ali uporaba zunanjih storitev).
+5. **Zasebnost in razložljivost:** Pri občutljivih podatkih (zdravstvo, finance) je lahko klasični model, ki teče lokalno in je razložljiv (npr. drevesa, linearni modeli), primernejši kot pošiljanje podatkov zunanjemu LLM-u.
 
-Pogosto pa gre za **kombinacijo** - npr. RAG in agenti združujejo jezikovne zmogljivosti LLMjev s klasičnim iskanjem, prav tako lahko LLM pripravlja podatke za klasične modele.
+Pogosto pa gre za **kombinacijo** - npr. RAG in agenti združujejo jezikovne zmogljivosti LLM-ov s klasičnim iskanjem, prav tako lahko LLM pripravlja podatke za klasične modele.
