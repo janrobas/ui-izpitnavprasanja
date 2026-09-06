@@ -236,15 +236,15 @@ Konvolucijske nevronske mreže (CNN) so posebna arhitektura nevronskih mrež, **
 **Osnovna principa delovanja:**
 
 1. **Konvolucija:**
-   - Filter (imenovan tudi jedro) je majhna matrika števil (npr. 3×3 ali 5×5), ki drsi čez celotno sliko.
-   - Na vsaki lokaciji filter izračuna zmnožek svojih vrednosti z vrednostmi pikslov pod seboj in rezultate sešteje.
-   - Rezultat tega procesa je **nova slika (imenovana karta značilk)** - vsaka točka v novi sliki pove, kako močno se ujema vzorec iz filtra z delom originalne slike.
-   - *Primer:* Filter, občutljiv na navpične robove, bo dal visoke vrednosti povsod, kjer so v sliki navpični prehodi (robovi), nizke pa povsod drugje.
+    - Filter (imenovan tudi jedro) je majhna matrika števil (npr. 3×3 ali 5×5), ki drsi čez celotno sliko.
+    - Na vsaki lokaciji filter izračuna zmnožek svojih vrednosti z vrednostmi pikslov pod seboj in rezultate sešteje.
+    - Rezultat tega procesa je **nova slika (imenovana karta značilk)** - vsaka točka v novi sliki pove, kako močno se ujema vzorec iz filtra z delom originalne slike.
+    - *Primer:* Filter, občutljiv na navpične robove, bo dal visoke vrednosti povsod, kjer so v sliki navpični prehodi (robovi), nizke pa povsod drugje.
 
 2. **Združevanje (Pooling):**
-   - Zmanjšuje velikost slike (dimenzionalnost) in povzema informacije.
-   - Najpogostejši je **max pooling**, ki vzame največjo vrednost iz vsakega majhnega okna (npr. 2×2).
-   - S tem ohranimo najpomembnejše informacije, hkrati pa zmanjšamo število parametrov in računsko zahtevnost.
+    - Zmanjšuje velikost slike (dimenzionalnost) in povzema informacije.
+    - Najpogostejši je **max pooling**, ki vzame največjo vrednost iz vsakega majhnega okna (npr. 2×2).
+    - S tem ohranimo najpomembnejše informacije, hkrati pa zmanjšamo število parametrov in računsko zahtevnost.
 
 **Uporaba:**
 - Prepoznavanje objektov na slikah (npr. ali je na sliki mačka)
@@ -395,19 +395,19 @@ Veliki jezikovni modeli (LLM) imajo več pomanjkljivosti. Konkretno opišite **v
 
 **Rešitev:**
 1. **Haluciniranje (izmišljanje dejstev):**
-   - *Opis:* Model samozavestno generira neresnične ali izmišljene informacije, ki zvenijo verodostojno.
-   - *Vzrok:* Model nima pravega razumevanja resničnosti, temveč le statistično napoveduje naslednjo besedo (oz. token). Prav tako nima dostopa do zunanjih virov znanja (razen, če jih dodamo).
-   - *Ukrep:* Uporaba tehnike RAG (Retrieval-Augmented Generation), kjer model pred odgovarjanjem poišče relevantne informacije v zunanji bazi znanja.
+    - *Opis:* Model samozavestno generira neresnične ali izmišljene informacije, ki zvenijo verodostojno.
+    - *Vzrok:* Model nima pravega razumevanja resničnosti, temveč le statistično napoveduje naslednjo besedo (oz. token). Prav tako nima dostopa do zunanjih virov znanja (razen, če jih dodamo).
+    - *Ukrep:* Uporaba tehnike RAG (Retrieval-Augmented Generation), kjer model pred odgovarjanjem poišče relevantne informacije v zunanji bazi znanja.
 
 2. **Pristranskost (bias):**
-   - *Opis:* Model reproducira ali celo krepi stereotipe in predsodke, prisotne v učnih podatkih (npr. spolni, rasni stereotipi).
-   - *Vzrok:* Učni podatki (spletne strani, knjige) vsebujejo človeške predsodke, ki se jih model nauči.
-   - *Ukrep:* Skrbno čiščenje in uravnoteženje učnih podatkov ter uporaba tehnik za zmanjševanje pristranskosti med učenjem (debiasing).
+    - *Opis:* Model reproducira ali celo krepi stereotipe in predsodke, prisotne v učnih podatkih (npr. spolni, rasni stereotipi).
+    - *Vzrok:* Učni podatki (spletne strani, knjige) vsebujejo človeške predsodke, ki se jih model nauči.
+    - *Ukrep:* Skrbno čiščenje in uravnoteženje učnih podatkov ter uporaba tehnik za zmanjševanje pristranskosti med učenjem (debiasing).
 
 3. **Stroškovna in okoljska zahtevnost:**
-   - *Opis:* Učenje in delovanje velikih modelov zahteva ogromno energije in zmogljive strojne opreme.
-   - *Vzrok:* Modeli z milijardami parametrov potrebujejo tisoče ur računanja na specializiranih čipih.
-   - *Ukrep:* Uporaba manjših, domeni prilagojenih modelov namesto največjih; optimizacija modelov (kvantizacija, obrezovanje - pruning).
+    - *Opis:* Učenje in delovanje velikih modelov zahteva ogromno energije in zmogljive strojne opreme.
+    - *Vzrok:* Modeli z milijardami parametrov potrebujejo tisoče ur računanja na specializiranih čipih.
+    - *Ukrep:* Uporaba manjših, domeni prilagojenih modelov namesto največjih; optimizacija modelov (kvantizacija, obrezovanje - pruning).
 
 ---
 
@@ -538,7 +538,7 @@ Regularizacija se uporablja pri različnih modelih (npr. regresiji, nevronskih m
 
 ---
 
-## 5. PRAKTIČNI PRIMERI IN UPORABA
+## 5. ALGORITMI, OBDELAVA PODATKOV IN UPORABA
 
 ### [2 točki] Kaj je značilka (feature) in inženiring značilk (feature engineering)?
 **Vprašanje:**
@@ -643,9 +643,9 @@ Metoda k-najbližjih sosedov (k-NN) je eden najpreprostejših algoritmov strojne
 **Kako deluje v praksi:**
 1. **Shranjevanje podatkov:** Model si preprosto zapomni vse učne primere (njihove značilnice in razrede).
 2. **Napovedovanje za nov primer:**
-   - Izračuna razdaljo (npr. evklidsko) med novim primerom in vsemi shranjenimi primeri.
-   - Izbere **k najbližjih** (tistih z najmanjšo razdaljo).
-   - Pri klasifikaciji nov primer dodeli v razred, ki se najpogosteje pojavi med izbranimi sosedi. Pri regresiji izračuna povprečje vrednosti sosedov.
+    - Izračuna razdaljo (npr. evklidsko) med novim primerom in vsemi shranjenimi primeri.
+    - Izbere **k najbližjih** (tistih z najmanjšo razdaljo).
+    - Pri klasifikaciji nov primer dodeli v razred, ki se najpogosteje pojavi med izbranimi sosedi. Pri regresiji izračuna povprečje vrednosti sosedov.
 
 **Ali potrebuje fazo učenja?**
 k-NN spada med **lene učence (lazy learners)** - nima prave faze učenja, saj ne zgradi modela vnaprej. Vse delo opravi šele v fazi napovedovanja. To pomeni:
@@ -837,7 +837,7 @@ Potrebno je izbrati drugo metriko za optimizacijo (npr. mero F1) ali model prila
 
 ---
 
-## 6. VELIKI JEZIKOVNI MODELI (LLM)
+## 6. SODOBNI AI: LLM, AGENTI IN RAZVOJ PROGRAMSKE OPREME
 
 ### [2 točki] Kaj je mehanizem pozornosti (attention) in zakaj je revolucionaren?
 **Vprašanje:**

@@ -1,0 +1,9 @@
+# Vmesni HTML korak (regenerira se ob vsakem zagonu generate_pdf.py)
+Izpitna_vprasanja.html
+
+# Python
+__pycache__/
+
+# Testne datoteke
+.playwright-mcp/
+cover.png
