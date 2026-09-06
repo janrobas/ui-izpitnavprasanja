@@ -1078,3 +1078,27 @@ Odločitev je odvisna od narave problema in zahtev, ne pa od tega, kateri pristo
 5. **Zasebnost in razložljivost:** Pri občutljivih podatkih (zdravstvo, finance) je lahko klasični model, ki teče lokalno in je razložljiv (npr. drevesa, linearni modeli), primernejši kot pošiljanje podatkov zunanjemu LLM-u.
 
 Pogosto pa gre za **kombinacijo** - npr. RAG in agenti združujejo jezikovne zmogljivosti LLM-ov s klasičnim iskanjem, prav tako lahko LLM pripravlja podatke za klasične modele.
+
+---
+
+### [2 točki] Zakaj pri AI agentih uporabljamo cenejše in dražje modele za različne dele naloge?
+**Vprašanje:**
+Pri delovanju AI agentov pogosto srečamo vzorec, kjer enostavnejše podnaloge (npr. poenostavitev ali razčlenitev vprašanja) izvaja cenejši/lažji model, zahtevnejše pa dražji in zmogljivejši. Zakaj je tak pristop smiseln? Kakšne so prednosti in kakšna tveganja?
+
+**Rešitev:**
+Vzorec izhaja iz dejstva, da cena, hitrost in zmogljivost modelov niso enaki - zmogljivejši model je dražji in počasnejši.
+- **Ideja:** nalogo razdelimo na podnaloge in vsaki dodelimo model, ki je zanjo "ravno dovolj dober". Enostavna obdelava (npr. poenostavitev, preoblikovanje, povzemanje) ne zahteva najzmogljivejšega modela, zato jo lahko opravi cenejši. Zmogljiv model se uporabi samo tam, kjer je res potreben (kompleksno sklepanje, pisanje kode).
+- **Prednosti:** nižji stroški, manjša poraba virov, hitrejši odziv pri enostavnih korakih. Poleg tega lahko cenejši model "predprocesira" vhod (npr. razjasni nejasno zahtevo), tako da dražji model dobi čisto nalogo in dela natančneje.
+- **Tveganja:** cenejši model lahko izgubi nianse ali naredi napako pri poenostavitvi, zato je rezultat njegovega dela treba preveriti (npr. potrditev uporabnika) - kar povezujemo tudi s konceptom harnessa (nadzor in preverjanje).
+
+---
+
+### [2 točki] Kaj so skills (veščine) AI kodnih agentov in v čem se razlikujejo od navadnega navodila v promptu?
+**Vprašanje:**
+Pri AI pomočnikih za programiranje poznamo "skills" (veščine) - ponovno uporabne pakete navodil in postopkov. Kaj je skill in v čem se razlikuje od tega, da navodilo enostavno zapišemo v običajen prompt? Zakaj so skills uporabni?
+
+**Rešitev:**
+Skill je **samostojno zapakiran, ponovno uporaben nabor navodil in postopkov**, ki se shrani (npr. kot datoteka) in se lahko aktivira glede na kontekst ali ključne besede, ne da bi ga bilo treba vsakič znova vnašati.
+- **Razlika od prompta:** navodilo v promptu je enkratno in ga oblikujemo sproti; skill je vnaprej pripravljen, strukturiran, lahko vključuje več korakov (npr. "najprej analiziraj, potem predlagaj, počakaj na potrditev") in se uporablja dosledno na več mestih ali večkrat.
+- **Uporabnost:** doslednost (isti postopek se vedno izvede enako), ponovna uporaba brez ponavljanja navodil, ločevanje kompleksnosti (skill lahko delegira delo podagentu ali drugemu modelu).
+- Skills so primer, kako se zunanja "varnostna mreža" (npr. predhodno poenostavljanje in potrditev naloge) vgradi v sam agentni sistem, kar se povezuje s konceptoma harnessa in vloge uporabnika pri nadzoru AI.
