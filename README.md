@@ -461,6 +461,29 @@ Fine-tuning je nadaljnje učenje že osnovnega modela na specifičnih podatkih, 
 
 ---
 
+### [2 točki] Kaj je LoRA in zakaj jo uporabljamo pri finem uglaševanju velikih jezikovnih modelov?
+**Vprašanje:**
+Kaj je **LoRA (Low-Rank Adaptation)**? Kateri problem rešuje pri finem uglaševanju velikih jezikovnih modelov? V čem se razlikuje od klasičnega uglaševanja, kjer posodabljamo vse uteži modela?
+
+**Rešitev:**
+LoRA je tehnika za **učinkovito fino uglaševanje** velikih jezikovnih modelov, ki bistveno zmanjša stroške in pomnilnik.
+
+**Kateri problem rešuje:** Klasičen fine-tuning posodablja vse parametre (uteži) modela. Pri LLM z milijardami parametrov to zahteva ogromno računske moči, pomnilnika (treba je hraniti gradiente in kopije vseh uteži) in časa. LoRA to obide tako, da **zamrzne izvirne uteži in nauči le majhno število dodatnih parametrov**.
+
+**Kako deluje (osnovna ideja):**
+- Namesto posodabljanja celotne matrike uteži med uglaševanjem, LoRA vnese **majhne dodatne matrike nizkega ranga** (od tod ime "low-rank").
+- Te male matrike predstavljajo spremembo, ki bi jo sicer naredili na velikih utežeh, le v stisnjeni obliki. Število dodatno naučenih parametrov je tako za nekaj redov velikosti manjše od števila vseh uteži.
+- Po uglaševanju se lahko majhne LoRA uteži shranijo posebej in nanesejo na osnovni model - originalni model ostane nespremenjen.
+
+**Prednosti:**
+- **Bistveno manj parametrov za učenje** - manj pomnilnika in računske moči; uglaševanje je mogoče tudi na običajni strojni opremi (npr. eni grafični kartici ali celo procesorju, če gre za manjši model).
+- **Preprosto shranjevanje in menjava:** LoRA uteži za različne naloge so majhne datoteke, ki jih lahko zamenjamo, ne da bi imeli več kopij celotnega modela.
+- Ohranimo znanje osnovnega modela, hkrati pa ga prilagodimo določeni domeni ali nalogi.
+
+**Zakaj je smiselno:** LoRA je način, kako zmanjšamo stroške in okoljsko zahtevnost dela z LLM - uglaševanje velikih modelov postane bistveno dostopnejše.
+
+---
+
 ### [2 točki] Kaj je prompt inženiring in kateri so ključni nasveti za učinkovito komunikacijo z LLM?
 **Vprašanje:**  
 Opišite koncept **prompt inženiringa**. Katere elemente naj vsebuje dober prompt, da dobimo čim bolj uporaben odgovor od velikega jezikovnega modela? Navedite vsaj tri nasvete.
